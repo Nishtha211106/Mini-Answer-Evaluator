@@ -48,13 +48,13 @@ def main():
 
     # Step 4: Display comparison
     print("=" * 50)
-    print(f"✅ EVALUATION WITH RUBRIC ({leniency_labels[leniency]}):")
+    print("EVALUATION WITH RUBRIC ({leniency_labels[leniency]}):")
     print("=" * 50)
     print_result(result_with)
 
     print()
     print("=" * 50)
-    print("❌ EVALUATION WITHOUT RUBRIC:")
+    print("EVALUATION WITHOUT RUBRIC:")
     print("=" * 50)
     print_result(result_without)
 

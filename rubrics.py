@@ -18,12 +18,12 @@ RUBRICS = [
              "alternating current", "direct current", "wavelength", "frequency"],
         "max_marks": 5,
         "criteria": """
-        - Definition stated correctly (1 mark)
-        - Correct formula mentioned with symbols explained (1 mark)
-        - Derivation or explanation of concept (1 mark)
-        - Numerical accuracy / unit correctness (1 mark)
-        - Example or application given (1 mark)
-        """
+        - Definition or concept stated correctly (1 mark)
+        - Formula mentioned with symbols explained, if applicable (1 mark)
+        - Explanation or derivation of the concept (1 mark)
+        - Numerical accuracy / units mentioned, if applicable (1 mark)
+        - Example or real-life application given (1 mark)
+"""
     },
     {
         "id": "math_class12",
@@ -96,11 +96,11 @@ RUBRICS = [
         "max_marks": 5,
         "criteria": """
         - Correct definition or concept stated (1 mark)
-        - Chemical equation or formula written correctly (1 mark)
+        - Chemical equation or formula written correctly, if applicable (1 mark)
         - Explanation of mechanism or process (1 mark)
-        - Correct units, conditions, or exceptions mentioned (1 mark)
+        - Correct units, conditions, or exceptions mentioned, if applicable (1 mark)
         - Example or application given (1 mark)
-        """
+"""
     },
     {
         "id": "fallback",

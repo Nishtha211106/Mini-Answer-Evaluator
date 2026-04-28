@@ -37,10 +37,37 @@ python main.py
 ```
 
 ## Approach
-1. **Rubric Design** — manually created rubrics for Physics, Math, English, Chemistry (Class 12) + a fallback for unknown subjects
-2. **Retrieval** — keyword matching on question + answer to find the best rubric. Simple, fast, no AI needed
-3. **Prompt Engineering** — structured prompt forces Gemini to evaluate strictly based on rubric and return only JSON
-4. **Bonus** — same answer evaluated with and without rubric to show rubric makes evaluation stricter and fairer
+### 1. Rubric Design
+Created rubrics manually based on real Class 12 marking patterns for:
+- Physics (Class 12)
+- Mathematics (Class 12)
+- English (Class 10)
+- English (Class 12)
+- Chemistry (Class 12)
+- Fallback (generic — handles unknown subjects)
+
+Each rubric contains keywords for detection and criteria for marking.
+
+### 2. Rubric Retrieval (Keyword Matching)
+- Combines question + answer into one lowercase string
+- Counts how many keywords from each rubric appear in that string
+- Returns the rubric with the highest keyword count
+- If nothing matches → uses fallback rubric
+- No embeddings or AI needed — simple, fast, zero cost
+
+### 3. Prompt Engineering
+The prompt is designed carefully:
+- Gives AI a role → "You are an expert teacher"
+- Provides question, answer, and rubric
+- Instructs AI to evaluate strictly based on rubric
+- Forces structured JSON output so it can be parsed in Python
+
+### 4. Bonus — Rubric vs No Rubric Comparison
+Same answer evaluated twice:
+- With rubric → strict, criterion-based, consistent
+- Without rubric → lenient, judgment-based, inconsistent
+
+This proves rubric-based evaluation is fairer and more structured.
 
 ## Prompts
 # Prompt 1

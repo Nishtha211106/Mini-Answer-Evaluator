@@ -41,7 +41,6 @@ python main.py
 Created rubrics manually based on real Class 12 marking patterns for:
 - Physics (Class 12)
 - Mathematics (Class 12)
-- English (Class 10)
 - English (Class 12)
 - Chemistry (Class 12)
 - Fallback (generic — handles unknown subjects)
@@ -49,7 +48,7 @@ Created rubrics manually based on real Class 12 marking patterns for:
 Each rubric contains keywords for detection and criteria for marking.
 
 ### 2. Rubric Retrieval (Keyword Matching)
-- Combines question + answer into one lowercase string
+- Combines question and answer into one lowercase string
 - Counts how many keywords from each rubric appear in that string
 - Returns the rubric with the highest keyword count
 - If nothing matches → uses fallback rubric
@@ -62,7 +61,7 @@ The prompt is designed carefully:
 - Instructs AI to evaluate strictly based on rubric
 - Forces structured JSON output so it can be parsed in Python
 
-### 4. Bonus — Rubric vs No Rubric Comparison
+### 4. Rubric vs No Rubric Comparison
 Same answer evaluated twice:
 - With rubric → strict, criterion-based, consistent
 - Without rubric → lenient, judgment-based, inconsistent
@@ -70,8 +69,8 @@ Same answer evaluated twice:
 This proves rubric-based evaluation is fairer and more structured.
 
 ## Prompts
-# Prompt 1
-For evaluation with using rubric.
+### Prompt 1
+**For evaluation with using rubric.**
 
 You are an expert teacher evaluating a student's answer.
 
@@ -94,8 +93,8 @@ Return ONLY a JSON object, nothing else:
   "justification": "<point-by-point explanation>"
 }}
 
-# Prompt 2
-For evaluation without using rubric.
+### Prompt 2
+**For evaluation without using rubric.**
 You are an expert teacher evaluating a student's answer.
 
 QUESTION:

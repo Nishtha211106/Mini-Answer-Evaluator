@@ -1,5 +1,6 @@
 # Mini-Answer-Evaluator
-A mini answer evaluation system that uses a rubric + LLM (Gemini) to evaluate a student's answer, built as a simplified version of what is done at Evalvia.
+A mini answer evaluation system that uses a rubric + LLM (Gemini) to evaluate a student's answer.
+
 ## What It Does
 
 Takes three inputs:

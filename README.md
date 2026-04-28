@@ -34,6 +34,7 @@ pip install google-genai
 
 # Run
 python main.py
+```
 
 ## Approach
 1. **Rubric Design** — manually created rubrics for Physics, Math, English, Chemistry (Class 12) + a fallback for unknown subjects

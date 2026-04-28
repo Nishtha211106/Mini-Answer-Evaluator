@@ -15,10 +15,10 @@ Returns:
 
 ## Project Structure
 mini-answer-evaluator
-─ rubrics.py       # All rubric definitions
-─ retrieval.py     # Keyword-based rubric retrieval
-─ evaluator.py     # Gemini API evaluation (with + without rubric)
-─ main.py          # CLI entry point
+- rubrics.py       # All rubric definitions
+- retrieval.py     # Keyword-based rubric retrieval
+- evaluator.py     # Gemini API evaluation (with + without rubric)
+- main.py          # CLI entry point
 
 ## How to Run
 ```bash

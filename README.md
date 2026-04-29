@@ -14,6 +14,11 @@ Returns:
 - Feedback
 - Justification
 
+Supports 3 leniency levels:
+- Strict → marks only if criterion clearly met
+- Normal → balanced, partial credit allowed
+- Lenient → benefit of doubt given
+  
 ## Project Structure
 mini-answer-evaluator
 - rubrics.py       # All rubric definitions
@@ -62,7 +67,14 @@ The prompt is designed carefully:
 - Instructs AI to evaluate strictly based on rubric
 - Forces structured JSON output so it can be parsed in Python
 
-### 4. Rubric vs No Rubric Comparison
+### 4. Leniency Factor
+Added a leniency control (Strict / Normal / Lenient) to the rubric 
+evaluation. This mimics how different teachers evaluate differently 
+in real life — a strict teacher vs a lenient one. The leniency 
+instruction is injected directly into the prompt so the AI adjusts 
+its judgment accordingly.
+
+### 5. Rubric vs No Rubric Comparison
 Same answer evaluated twice:
 - With rubric → strict, criterion-based, consistent
 - Without rubric → lenient, judgment-based, inconsistent
@@ -71,7 +83,7 @@ This proves rubric-based evaluation is fairer and more structured.
 
 ## Prompts
 ### Prompt 1
-**For evaluation with using rubric.**
+**For evaluation with rubric + leniency control.**
 
 You are an expert teacher evaluating a student's answer.
 
@@ -85,14 +97,21 @@ EVALUATION RUBRIC ({rubric['subject']}):
 {rubric['criteria']}
 Maximum marks: {rubric['max_marks']}
 
-Evaluate strictly based on the rubric.
+LENIENCY INSTRUCTION:
+{leniency_instruction}
+(where leniency_instruction is one of:)
+- Strict: "Be very strict. Award marks only if criterion is clearly and completely met. No benefit of doubt."
+- Normal: "Be balanced. Award marks if criterion is mostly met. Give partial credit where deserved."
+- Lenient: "Be lenient. Give benefit of doubt. Award marks if student shows understanding even if incomplete."
+
+Evaluate based on the rubric and leniency instruction above.
 Return ONLY a JSON object, nothing else:
-{{
+{
   "marks_awarded": <integer>,
-  "max_marks": {rubric['max_marks']},
+  "max_marks": {max_marks},
   "feedback": "<what student did well and what is missing>",
   "justification": "<point-by-point explanation>"
-}}
+}
 
 ### Prompt 2
 **For evaluation without using rubric.**
